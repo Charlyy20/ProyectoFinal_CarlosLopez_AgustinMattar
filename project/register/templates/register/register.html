@@ -1,0 +1,70 @@
+{% extends 'core/inner-page.html' %}
+{% load static %}
+
+{% block title %}
+    Registro - CAA
+{% endblock title %}
+
+{% block content %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+        <h2>Registro</h2>
+        <ol>
+            <li><a href="{% url 'core:home' %}">Inicio</a></li>
+            <li><a href="{% url 'register:register' %}">Registro</a></li>
+        </ol>
+        </div>
+
+    </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <form action="{% url 'register:register_person' %}" method="post" role="form" class="php-email-form">
+                        {% csrf_token %}
+                        <fieldset>                   
+                            <legend>Información Personal</legend>
+                            <input type="text" id="id_nombre" name="nombre" class="form-control" placeholder="Nombre" autocomplete="name" required>
+                            <br>
+                            <input type="text" id="id_apellido" name="apellido" class="form-control" placeholder="Apellido" autocomplete="name" required>
+                            <br>
+                            <input type="date" id="id_fecha_nacimiento" name="fecha_nacimiento" class="form-control" required>
+                        </fieldset>
+                        <fieldset>
+                            <legend style="padding-top: 40px;">Dirección</legend>
+                            <input type="text" id="id_calle" name="calle" class="form-control" placeholder="Calle" autocomplete="address-line1" required>
+                            <br>
+                            <input type="number" id="id_numero" name="numero" class="form-control" placeholder="Numero" autocomplete="address-line2" required>
+                            <br>
+                            <input type="text" id="id_ciudad" name="ciudad" class="form-control" placeholder="Ciudad" autocomplete="address-level2" required>
+                        </fieldset>
+                        <fieldset>
+                            <legend style="padding-top: 40px;">Contacto</legend>
+                            <input type="email" id="id_email" name="email" class="form-control" placeholder="Email" autocomplete="email" required>
+                            <br>
+                            <input type="tel" id="id_telefono" name="telefono" class="form-control" placeholder="Telefono" autocomplete="tel" required>
+                        </fieldset>
+                        <div class="my-3">
+                            <div class="loading">Cargando</div>
+                            <div class="error-message">Error al realizar el registro</div>
+                            <div class="sent-message">Registro exitoso. Muchas Gracias!</div>
+                        </div>
+                        <div class="text-center" style="margin-top: 20px"><button type="submit">Enviar Registro</button></div>
+                    </form>
+                </div>
+                <div class="col-lg-6  mt-5 mt-lg-0 d-flex align-items-center justify-content-center">
+                    <img src="{% static 'core/assets/img/countach-garage.jpg' %}" class="img-fluid" alt="" style="width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+{% endblock content %}

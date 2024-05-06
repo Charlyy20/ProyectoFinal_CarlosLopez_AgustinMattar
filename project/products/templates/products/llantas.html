@@ -1,0 +1,47 @@
+{% extends 'core/inner-page.html' %}
+
+{% block title1 %}
+    Productos - Llantas
+{% endblock title1 %}
+
+{% block content %}
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+            <h2>Llantas</h2>
+            <ol>
+                <li><a href="index.html">Inicio</a></li>
+                <li>Llantas</li>
+            </ol>
+            </div>
+
+        </div>
+        </section><!-- End Breadcrumbs -->
+
+        <section class="inner-page">
+        <div class="container">
+            <form method="get" action="">
+                <input type="text" name="q" placeholder="Buscar productos...">
+                <input type="submit" value="Buscar">
+            </form>
+            <p>
+            CONTENIDO DE LA PAGINA QUE QUIERAS
+            </p>
+        </div>
+        </section>
+
+    </main><!-- End #main -->
+{% endblock content %}
+
+
+{% block title2 %}
+    Especificaciones - Llantas
+{% endblock title2 %}
+
+{% block especificaciones %}
+    ACA VAN LAS SPECS DE LOS PRODUCTOS COMO UNA CARD
+{% endblock especificaciones %}

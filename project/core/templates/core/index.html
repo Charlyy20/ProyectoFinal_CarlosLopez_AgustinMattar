@@ -1,0 +1,362 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    <h1>Car All - Autopartes</h1>
+{% endblock title %}
+
+{% block content %}
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                <img src="{% static 'core/assets/img/dream-garage.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+                <h3>La pasion ante todo.</h3>
+                <p class="fst-italic">
+                Un Grupo de amigos se unio para crear este proyecto. Uno donde cualquier entusiasta de los autos se sienta como en casa.
+                Destinados a proveer las mejores marcas de productos aftermarket, de mas alto nivel y prestigio.
+                </p>
+                <ul>
+                <li><i class="ri-check-double-line"></i> Intakes de Carbono</li>
+                <li><i class="ri-check-double-line"></i> Wide Bodys</li>
+                <li><i class="ri-check-double-line"></i> Llantas de Alto Rendimiento </li>
+                <li><i class="ri-check-double-line"></i> Alerones </li>
+                </ul>
+                <p>
+                Estos son solo algunos de los productos que manejamos, ya que estamos en constante crecimiento y siempre sumando mas y mas productos.
+                </p>
+            </div>
+            </div>
+
+        </div>
+        </section><!-- End About Section -->
+
+        <!-- ======= Clients Section ======= -->
+        <section id="clients" class="clients">
+        <div class="container" data-aos="zoom-in">
+
+            <div class="clients-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide"><img src="{% static 'core/assets/img/clients/magnaflow.png' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'core/assets/img/clients/ecs.png' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'core/assets/img/clients/vulk.png' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'core/assets/img/clients/oz.png' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'core/assets/img/clients/eventuri.png' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'core/assets/img/clients/rw-carbon.png' %}" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="{% static 'core/assets/img/clients/adro-2.png' %}" class="img-fluid" alt=""></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+        </section><!-- End Clients Section -->
+
+        <!-- ======= Portfolio Section ======= -->
+        <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+            <h2>Galeria</h2>
+            <p>Productos Destacados</p>
+            </div>
+
+            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                <img src="{% static 'core/assets/img/portfolio/eventuri.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Eventuri</h4>
+                    <p>Admision - BMW M3 / M4</p>
+                    <div class="portfolio-links">
+                    <a href="{% static 'core/assets/img/portfolio/eventuri.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                    <a href="{% static 'core:portfolio-details' %}" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                <div class="portfolio-wrap">
+                <img src="{% static 'core/assets/img/portfolio/oz.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>OZ Racing</h4>
+                    <p>OZ Ultralleggera 18"</p>
+                    <div class="portfolio-links">
+                    <a href="{% static 'core/assets/img/portfolio/oz.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                <img src="{% static 'core/assets/img/portfolio/magnaflow.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Magnaflow</h4>
+                    <p>Escape - Toyota 86</p>
+                    <div class="portfolio-links">
+                    <a href="{% static 'core/assets/img/portfolio/magnaflow.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                <div class="portfolio-wrap">
+                <img src="{% static 'core/assets/img/portfolio/t37.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Volk Racing</h4>
+                    <p>Llanta - T37 18"</p>
+                    <div class="portfolio-links">
+                    <a href="{% static 'core/assets/img/portfolio/t37.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                <div class="portfolio-wrap">
+                <img src="{% static 'core/assets/img/portfolio/spoiler-golf.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>ECS Tuning</h4>
+                    <p>Aleron - Golf MK7 / MK7.5</p>
+                    <div class="portfolio-links">
+                    <a href="{% static 'core/assets/img/portfolio/spoiler-golf.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                <img src="{% static 'core/assets/img/portfolio/carbon-hood.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>RW Carbon</h4>
+                    <p>Capo de Carbono - Subaru Impreza</p>
+                    <div class="portfolio-links">
+                    <a href="{% static 'core/assets/img/portfolio/carbon-hood.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                <div class="portfolio-wrap">
+                <img src="{% static 'core/assets/img/portfolio/sls-amg.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>RW Carbon</h4>
+                    <p>Aleron - Mercedes SLS</p>
+                    <div class="portfolio-links">
+                    <a href="{% static 'core/assets/img/portfolio/sls-amg.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                <div class="portfolio-wrap">
+                <img src="{% static 'core/assets/img/portfolio/widebody-gr86.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Adro</h4>
+                    <p>Widebody - Toyota GR86 / Subaru BRZ</p>
+                    <div class="portfolio-links">
+                    <a href="{% static 'core/assets/img/portfolio/widebody-gr86.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                <div class="portfolio-wrap">
+                <img src="{% static 'core/assets/img/portfolio/spoiler-m3.jpg' %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>RW Carbon</h4>
+                    <p>Spoiler - BMW M3 / M4</p>
+                    <div class="portfolio-links">
+                    <a href="{% static 'core/assets/img/portfolio/spoiler-m3.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+        </section><!-- End Portfolio Section -->
+
+        <!-- ======= Team Section ======= -->
+        <section id="team" class="team">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title-2">
+            <h2 class="section-title-special">Equipo</h2>
+            <p class="p-team-special">Nuestro Equipo</p>
+            </div>
+
+            <div class="row">
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                    <img src="{% static 'core/assets/img/team/team-1.jpg' %}" class="img-fluid" alt="">
+                    <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h4>Lucas Gendez</h4>
+                    <span>CEO</span>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="member" data-aos="fade-up" data-aos-delay="200">
+                <div class="member-img">
+                    <img src="{% static 'core/assets/img/team/team-2.jpg' %}" class="img-fluid" alt="">
+                    <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h4>Sarah Melinc</h4>
+                    <span>Jefa de Marketing</span>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="member" data-aos="fade-up" data-aos-delay="300">
+                <div class="member-img">
+                    <img src="{% static 'core/assets/img/team/team-3.jpg' %}" class="img-fluid" alt="">
+                    <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h4>Esteban Hernandez</h4>
+                    <span>Jefe de Deposito</span>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                <div class="member" data-aos="fade-up" data-aos-delay="400">
+                <div class="member-img">
+                    <img src="{% static 'core/assets/img/team/team-4.jpg' %}" class="img-fluid" alt="">
+                    <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="member-info">
+                    <h4>Amalia Robers</h4>
+                    <span>Jefa de Ventas</span>
+                </div>
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+        </section><!-- End Team Section -->
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+            <h2>Contacto</h2>
+            <p>Contactanos</p>
+            </div>
+
+            <div>
+            <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d375.9409255835926!2d-58.58347976338113!3d-34.631979578821706!2m3!1f180!2f0!3f0!3m2!1i1024!2i768!4f35!5e1!3m2!1ses!2sar!4v1714248836785!5m2!1ses!2sar" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="row mt-5">
+
+            <div class="col-lg-4">
+                <div class="info">
+                <div class="address">
+                    <i class="bi bi-geo-alt"></i>
+                    <h4>Ubicación:</h4>
+                    <p>Paraiso 9579, El Palomar</p>
+                </div>
+
+                <div class="email">
+                    <i class="bi bi-envelope"></i>
+                    <h4>Email:</h4>
+                    <p>info@carall.com</p>
+                </div>
+
+                <div class="phone">
+                    <i class="bi bi-phone"></i>
+                    <h4>Telefono:</h4>
+                    <p>+54 9 11 4685-2384</p>
+                </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 mt-5 mt-lg-0">
+
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
+                </div>
+                <div class="form-group mt-3">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
+                </div>
+                <div class="my-3">
+                    <div class="loading">Cargando</div>
+                    <div class="error-message">Error al enviar el mensaje</div>
+                    <div class="sent-message">Tu mensaje ya fue enviado. Muchas Gracias!</div>
+                </div>
+                <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
+                </form>
+
+            </div>
+
+            </div>
+
+        </div>
+        </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->
+{% endblock content %}
