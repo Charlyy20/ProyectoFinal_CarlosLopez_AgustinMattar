@@ -1233,6 +1233,14 @@ section {
 
 .contact .php-email-form input {
   height: 44px;
+  box-shadow: none;
+  font-size: 14px;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .contact .php-email-form textarea {

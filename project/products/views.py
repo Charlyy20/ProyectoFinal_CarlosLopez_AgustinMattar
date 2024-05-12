@@ -19,10 +19,15 @@ def widebody_view(request):
 #-----------------------------------------------------------------------------------#
 
 def llantas(request):
-    q = request.GET.get('q', '')
-    products = Llantas.objects.all()
-    print(products)
-    return render(request, 'products/llantas.html', {'products': products})
+    q = request.GET.get(['q'], None)
+    if q:
+        print(q)
+        products = Llantas.objects.filter(marca__icontains=q)
+    else:
+        products = Llantas.objects.all()
+        
+    context = {"products": products}
+    return render(request, 'products/llantas.html', context)
 
 #def llantas(request):
     q = request.GET.get('q', '')

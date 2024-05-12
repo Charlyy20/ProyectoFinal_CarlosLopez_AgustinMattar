@@ -6,24 +6,50 @@
 {% endblock title %}
 
 {% block content %}
-    
 
+    <!-- ======= Breadcrumbs ======= -->
     <section class="breadcrumbs">
-        <div class="container ">
-            
+        <div class="container">
+    
             <div class="d-flex justify-content-between align-items-center">
-                <h1>Login</h1>
+            <h2>Login</h2>
+            <ol>
+                <li><a href="{% url 'core:home' %}">Inicio</a></li>
+                <li>Iniciar Sesión</a></li>
+            </ol>
             </div>
     
         </div>
+        </section><!-- End Breadcrumbs -->
+
+    <section class="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-6 mt-5 mt-lg-0">                    
+                    <form method="post" role="form" class="php-email-form">
+                        {% csrf_token %}
+                        <legend>Datos de Usuario</legend>
+                        <div>
+                            <label for="id_username" style="padding-top: 15px;">Nombre de usuario:</label>
+                            {{ form.username }}
+                        </div>
+                        <div>
+                            <label for="id_password" style="padding-top: 16px;">Contraseña:</label>
+                            {{ form.password }}
+                        </div>
+                        <div class="my-3">
+                            <div class="text-center" style="margin-top: 20px">
+                                <button type="submit">Iniciar Sesión</button>
+                                <a href="{% url 'core:home' %}" style="margin-left: 11px;">Cancelar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>           
+                <div class="col-lg-6  mt-5 mt-lg-0 d-flex align-items-center justify-content-center">
+                    <img src="{% static 'core/assets/img/R8-street.jpg' %}" class="img-fluid" alt="" style="width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
     </section>
-           
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="hidden" name="next" value="{% url 'core:home' %}">
-        <button type="submit">Iniciar Sesion</button>
-        <a href="{% url 'core:home' %}">Cancelar</a>
-    </form>
-    
+
 {% endblock content %}
