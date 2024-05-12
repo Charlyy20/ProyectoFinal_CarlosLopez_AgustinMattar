@@ -1,6 +1,6 @@
 # Proyecto Final CoderHosue
 Comision: 54135
-Alumnmo: Lopez Carlos David
+Alumno: Lopez Carlos David
 
 # Acerca del proyecto
 Este proyecto es el principio de un E.commerce, dedicado al mundo automotor.

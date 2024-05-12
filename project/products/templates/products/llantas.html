@@ -1,4 +1,5 @@
 {% extends 'core/inner-page.html' %}
+{% load static %}
 
 {% block title1 %}
     Productos - Llantas
@@ -22,26 +23,44 @@
         </div>
         </section><!-- End Breadcrumbs -->
 
-        <section class="inner-page">
+<!--        <section class="inner-page">
         <div class="container">
             <form method="get" action="">
                 <input type="text" name="q" placeholder="Buscar productos...">
                 <input type="submit" value="Buscar">
             </form>
-            <p>
-            CONTENIDO DE LA PAGINA QUE QUIERAS
-            </p>
+            {% for product in products %}
+                <div>
+                    <h2>{{ product.marca }}</h2>
+                    <h2>{{ product.modelo }}</h2>
+                </div>
+            {% empty %}
+                <p>No se encontraron productos.</p>
+            {% endfor %}
         </div>
-        </section>
+        </section>-->
+        
+        <section id="portfolio">
+        <div class="container" data-aos="fade-up">
+            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                {% for product in products %}
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                        <div class="portfolio-wrap">  
+                            <img src="{% static 'core/assets/img/portfolio/t37.jpg' %}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h3>{{ product.marca }}</h3>
+                                <h4>{{ product.modelo }}</h4>
+                                <div class="portfolio-links">
+                                    <a href="{% static 'core/assets/img/portfolio/t37.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}                    
+            </div>
+        </div>
+        </section><!-- End Portfolio Section -->
 
     </main><!-- End #main -->
 {% endblock content %}
-
-
-{% block title2 %}
-    Especificaciones - Llantas
-{% endblock title2 %}
-
-{% block especificaciones %}
-    ACA VAN LAS SPECS DE LOS PRODUCTOS COMO UNA CARD
-{% endblock especificaciones %}

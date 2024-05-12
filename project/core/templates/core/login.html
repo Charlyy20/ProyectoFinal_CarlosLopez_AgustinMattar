@@ -1,0 +1,20 @@
+{% extends 'core/inner-page.html' %}
+{% load static %}
+
+{% block title %}
+    Iniciar Sesión - CAA
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h1>Login</h1>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{% url 'core:home' %}">
+        <button type="submit">Iniciar Sesion</button>
+        <a href="{% url 'core:home' %}">Cancelar</a>
+    </form>
+{% endblock content %}
