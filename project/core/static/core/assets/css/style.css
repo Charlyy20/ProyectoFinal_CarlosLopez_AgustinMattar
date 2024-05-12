@@ -1231,7 +1231,7 @@ section {
   border-color: #ffc451;
 }
 
-.contact .php-email-form input, .input-django {
+.contact .php-email-form input {
   height: 44px;
   box-shadow: none;
   font-size: 14px;

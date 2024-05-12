@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -9,7 +9,7 @@
 
   <title>
     {% block title2 %}
-      Titulo por Defecto
+      Detalles de Producto - CAA
     {% endblock title2 %}   
   </title>
   <meta content="" name="description">
@@ -42,7 +42,7 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Gp<span>.</span></a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="{% url 'core:home' %}">CA Autopartes<span>.</span></a></h1>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -55,10 +55,18 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#about" class="get-started-btn scrollto">Registrarte</a>
+      <div>
+        <a href="{% url 'register:register' %}" class="get-started-btn scrollto">Registrarte</a>
+        <a href="{% url 'core:login' %}" class="get-started-btn scrollto">Iniciar Sesión</a>
+      </div>
 
     </div>
   </header><!-- End Header -->
+
+  {% block content %}   
+  {% endblock content %}
+
+<!-- ============= CODIGO A CORTAR ============ -->
 
   <main id="main">
 
@@ -67,7 +75,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Portfolio Details</h2>
+          <h2>Detalles de Producto</h2>
           <ol>
             <li><a href="index.html">Inicio</a></li>
             <li>Detalles Productos</li>
@@ -108,16 +116,16 @@
             <div class="portfolio-info">
               <h3>Informacion del Producto</h3>
               <ul>
-                <li><strong>Categoria</strong>: Web design</li>
-                <li><strong>Marca</strong>: ASU Company</li>
-                <li><strong>Modelo</strong>: 01 March, 2020</li>
-                <li><strong>Precio</strong>: $ 290.000</li>
+                <li><strong>Categoria</strong>: {{}}</li>
+                <li><strong>Marca</strong>: {{}}</li>
+                <li><strong>Modelo</strong>: {{}}</li>
+                <li><strong>Precio</strong>: $ {{}}</li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>This is an example of portfolio detail</h2>
+              <h2>Descripción</h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                {{}}
               </p>
             </div>
           </div>
@@ -128,6 +136,8 @@
     </section><!-- End Portfolio Details Section -->
 
   </main><!-- End #main -->
+
+<!-- ============= CODIGO A CORTAR ============ -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -155,7 +165,7 @@
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Links Utiles</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca de Nosotros</a></li>
