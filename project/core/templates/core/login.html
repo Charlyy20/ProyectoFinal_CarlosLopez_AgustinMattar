@@ -6,10 +6,18 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="container">
-        <h1>Login</h1>
-    </div>
+    
 
+    <section class="breadcrumbs">
+        <div class="container ">
+            
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>Login</h1>
+            </div>
+    
+        </div>
+    </section>
+           
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
@@ -17,4 +25,5 @@
         <button type="submit">Iniciar Sesion</button>
         <a href="{% url 'core:home' %}">Cancelar</a>
     </form>
+    
 {% endblock content %}
