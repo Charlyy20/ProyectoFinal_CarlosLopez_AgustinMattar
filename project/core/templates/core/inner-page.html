@@ -55,11 +55,31 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
       <div>
-        <a href="{% url 'register:register' %}" class="get-started-btn scrollto">Registrarte</a>
-        <a href="{% url 'core:login' %}" class="get-started-btn scrollto">Iniciar Sesión</a>
+
+        <div class="row">
+          
+          <div class="col-2">
+          </div>
+          <div class="col-4">
+            <a href="{% url 'register:register' %}" class="get-started-btn scrollto" style="margin-right: 2rem;">Registrarte</a>
+          </div>
+          <div class="col-4">
+            {% if user.is_authenticated %}
+              <form action="{% url 'core:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="boton-logout-innerpage">Desloguearse</button>
+              </form>
+            {% else %}
+              <a href="{% url 'core:login' %}" class="get-started-btn scrollto">Iniciar Sesión</a>
+            {% endif %}
+          </div>
+          <div class="col-2">
+          </div>
+        </div>
+ 
       </div>
+      
 
     </div>
   </header><!-- End Header -->
