@@ -28,30 +28,20 @@
                 <div class="col-lg-6 mt-5 mt-lg-0">                    
                     <form method="post">
                         {% csrf_token %}
-                        
-                        
                         <legend style="padding-bottom: 35px;">Datos de Usuario</legend>
-                        
-                            
-
-                        {{ form.username.label_tag }}
-                        
+                        {{ form.username.label_tag }}                       
                         <div class="contenedor-form-username">
                             {{ form.username }}
-                        </div>                            
-                        
+                        </div>                                                    
                         {{ form.password.label_tag }}
                         <div class="contenedor-form-username">
                             {{ form.password }}
-                        </div>                 
-                        
-                        <input type="hidden" name="next" value="{% url 'core:home' %}">
-                        
+                        </div>                                         
+                        <input type="hidden" name="next" value="{% url 'core:home' %}">                        
                         <div class="text-center" style="margin-top: 20px;">
                             <button type="submit" class="boton-form-login ">Iniciar Sesion</button>
                             <a href="{% url 'core:home' %}">Cancelar</a>
-                        </div>
-                        
+                        </div>                       
                     </form>
                 </div>           
                 <div class="col-lg-6  mt-5 mt-lg-0 d-flex align-items-center justify-content-center">
