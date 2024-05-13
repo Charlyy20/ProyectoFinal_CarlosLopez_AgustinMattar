@@ -26,22 +26,25 @@
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-6 mt-5 mt-lg-0">                    
-                    <form method="post" role="form" class="php-email-form">
+                    <form action="{% url 'core:login' %}" method="post" role="form" class="php-email-form">
                         {% csrf_token %}
                         <legend>Datos de Usuario</legend>
-                        <div>
+                        <fieldset>
                             <label for="id_username" style="padding-top: 15px;">Nombre de usuario:</label>
                             {{ form.username }}
-                        </div>
-                        <div>
+                        </fieldset>
+                        <fieldset>
                             <label for="id_password" style="padding-top: 16px;">Contraseña:</label>
                             {{ form.password }}
-                        </div>
+                        </fieldset>
                         <div class="my-3">
-                            <div class="text-center" style="margin-top: 20px">
-                                <button type="submit">Iniciar Sesión</button>
-                                <a href="{% url 'core:home' %}" style="margin-left: 11px;">Cancelar</a>
-                            </div>
+                            <div class="loading">Cargando</div>
+                            <div class="error-message">Error al Iniciar Sesión</div>
+                            <div class="sent-message">Sesión Iniciada Correctamente!</div>
+                        </div>
+                        <div class="text-center" style="margin-top: 20px;">
+                            <button type="submit">Iniciar Sesión</button>
+                            <a href="{% url 'core:home' %}" style="margin-left: 11px;">Cancelar</a>
                         </div>
                     </form>
                 </div>           
