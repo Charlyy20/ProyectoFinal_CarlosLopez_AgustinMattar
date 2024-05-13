@@ -16,4 +16,4 @@ class CustomAuthenticationForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({'class': 'input-django'})
-        self.fields['password'].widget.attrs.update({'class': 'input-django'})
+        self.fields['password'].widget.attrs.update({'class': 'input-django'})  

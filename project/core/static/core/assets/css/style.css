@@ -1495,3 +1495,44 @@ section {
   border: var(--bs-border-width) solid var(--bs-border-color);
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+
+
+/*--------------------------------------------------------------
+# BOTON LOGOUT
+--------------------------------------------------------------*/
+
+.boton-logout{
+  background: #000;
+  color:#fff;
+  border-radius: 4px;
+  padding: 7px 25px 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+  border: 2px solid #ffc451;
+}
+
+.boton-logout:hover {
+  background: #ffbb38;
+  color: #343a40;
+}
+
+
+.boton-logout-innerpage{
+  background-color:rgba(51,51,51);
+  color:#fff;
+  border-radius: 4px;
+  padding: 7px 25px 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+  border: 2px solid #ffc451;
+}
+
+.boton-logout-innerpage:hover{
+  background: #ffbb38;
+  color: #343a40;
+
+}
