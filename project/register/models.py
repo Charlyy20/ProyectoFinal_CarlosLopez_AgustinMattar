@@ -5,7 +5,8 @@ class Persona(models.Model):
     nombre = models.CharField(max_length=255)
     apellido = models.CharField(max_length=255)
     fecha_nacimiento = models.DateField()
-
+    telefono = models.CharField(max_length=255, default='0000000000')
+    
     def __str__(self) -> str:
         return f"{self.nombre} {self.apellido}"
 
@@ -17,5 +18,6 @@ class Direccion(models.Model):
 
 class Contacto(models.Model):
     email = models.EmailField()
-    telefono = models.CharField(max_length=255)
+    username = models.CharField(max_length=255, default='0000000000')
+    contraseña = models.CharField(max_length=255)
     persona = models.OneToOneField(Persona, on_delete=models.CASCADE)
