@@ -22,15 +22,39 @@
         </div>
         </section><!-- End Breadcrumbs -->
 
-        <section class="inner-page">
-        <div class="container">
-                <form method="get" action="">
-                    <input type="text" name="q" placeholder="Buscar productos..."><input type="submit" value="Buscar">
-                </form>
-            <p>
-            CONTENIDO DE LA PAGINA QUE QUIERAS
-            </p>
+        <div class="text-center" style="margin-top: 10px;">
+            <a href="{% url 'products:create_widebody' %}" class="boton-create">Crear Producto</a>
         </div>
+
+        <section class="inner-page">
+            <div class="container">
+                <form  action="{% url 'products:widebody' %}" method="get">
+                    <input type="text" name="q" placeholder="Buscar productos...">
+                    <button type="submit">Buscar</button>
+                </form>
+                <div class="row" style="padding-top: 25px;">
+                    {% for widebody in widebodys %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card" style="border: 2px solid #343a40;">
+                            <div class="card-body" style="max-height: 330px;">
+                                <img src="{{ widebody.imagen_url }}" alt="Imagen del widebody" style="padding-bottom: 20px;">
+                                <h5 class="card-title">{{ widebody.marca }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ widebody.modelo }}</h6>
+                                <p class="card-text">ID: {{ widebody.id }}</p>
+                                <p class="card-price">Precio: {{ widebody.precio }}$</p>
+                                <div id="boton" style="text-align: center; padding-bottom: 13px;">
+                                    <a href="#" class="boton-create">Más detalles</a>
+                                </div>
+                            </div>    
+                            <div style="border-top: 2px solid #343a40; padding: 13px 0px; text-align: center;">
+                                <a href="#" class="btn btn-primary">Modificar Producto</a>
+                                <a href="#" class="btn btn-danger">Eliminar Producto</a>
+                            </div>                               
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </section>
 
     </main><!-- End #main -->

@@ -1468,7 +1468,7 @@ section {
 }
 
 /*--------------------------------------------------------------
-# INPUTS DE DJANGO
+# Inputs de Django
 --------------------------------------------------------------*/
 
 .boton-form-login{
@@ -1484,13 +1484,13 @@ section {
 
 .input-django{
   height: 44px;
+  font-size: 1rem;
   box-shadow: none;
-  font-size: 14px;
   border-radius: 4px;
   display: block;
   width: 100%;
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
   padding: .375rem .75rem;
   border: var(--bs-border-width) solid var(--bs-border-color);
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -1498,10 +1498,10 @@ section {
 
 
 /*--------------------------------------------------------------
-# BOTON LOGOUT
+# Logout
 --------------------------------------------------------------*/
 
-.boton-logout{
+.boton-logout {
   background: #000;
   color:#fff;
   border-radius: 4px;
@@ -1519,7 +1519,7 @@ section {
 }
 
 
-.boton-logout-innerpage{
+.boton-logout-innerpage {
   background-color:rgba(51,51,51);
   color:#fff;
   border-radius: 4px;
@@ -1531,8 +1531,46 @@ section {
   border: 2px solid #ffc451;
 }
 
-.boton-logout-innerpage:hover{
+.boton-logout-innerpage:hover {
   background: #ffbb38;
   color: #343a40;
 
+}
+
+/*--------------------------------------------------------------
+Card Style
+--------------------------------------------------------------*/
+
+.boton-create {
+  color: #343a40;
+  border-radius: 4px;
+  background-color: transparent;
+  border-color: #ffbb38;
+  padding: 7px 25px 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.boton-create:hover {
+  background: #343a40;
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
+Div Desplegable
+--------------------------------------------------------------*/
+
+.contenido {
+  display: none; 
+}
+
+.div-span {
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 0;
+  margin-bottom: .5rem;
+  font-size: calc(1.275rem + .3vw);
+  line-height: inherit;
 }

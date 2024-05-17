@@ -39,8 +39,6 @@
     <div class="container d-flex align-items-center justify-content-lg-between">
 
       <h1 class="logo me-auto me-lg-0"><a href="{% url 'core:home' %}">CA Autopartes<span>.</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
@@ -52,30 +50,19 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+      
       <div>
-
-        <div class="row">
-          
-          <div class="col-2">
-          </div>
-          <div class="col-4">
-            <a href="{% url 'register:register' %}" class="get-started-btn scrollto" style="margin-right: 2rem;">Registrarte</a>
-          </div>
-          <div class="col-4">
-            {% if user.is_authenticated %}
-              <form action="{% url 'core:logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="boton-logout" href="{% url 'core:login' %}">Desloguearse</button>
-              </form>
-            {% else %}
-              <a href="{% url 'core:login' %}" class="get-started-btn scrollto">Iniciar Sesión</a>
-            {% endif %}
-          </div>
-          <div class="col-2">
-          </div>
-        </div>
- 
+        {% if user.is_authenticated %}
+          <form action="{% url 'core:logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="boton-logout">Desloguearse</button>
+          </form>
+        {% else %}
+          <a href="{% url 'register:register' %}" class="get-started-btn scrollto" style="margin-right: 7px;">Registrarte</a>
+          <a href="{% url 'core:login' %}" class="get-started-btn scrollto">Iniciar Sesión</a>
+        {% endif %}
       </div>
+
     </div>
   </header><!-- End Header -->
 
