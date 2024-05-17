@@ -16,13 +16,14 @@ Este proyecto es un E.commerce, dedicado al mundo automotor.
 - Contacto
 - Products
 - Llanta
-- Alerone
+- Aleron
 - Intake
 - Spoiler
 - Widebody
 
 # Mejoras Futuras
-- 
+- Redirecciones del Footer funcionando
+- Carrito de Compras
 
 # Problemas Conocidos
 
