@@ -77,7 +77,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Detalles de Producto</h2>
           <ol>
-            <li><a href="index.html">Inicio</a></li>
+            <li><a href="{% url 'core:home' %}">Inicio</a></li>
             <li>Detalles Productos</li>
           </ol>
         </div>
@@ -116,16 +116,16 @@
             <div class="portfolio-info">
               <h3>Informacion del Producto</h3>
               <ul>
-                <li><strong>Categoria</strong>: {{}}</li>
-                <li><strong>Marca</strong>: {{}}</li>
-                <li><strong>Modelo</strong>: {{}}</li>
-                <li><strong>Precio</strong>: $ {{}}</li>
+                <li><strong>Categoria</strong>: {{products.categoria}}</li>
+                <li><strong>Marca</strong>: {{products.marca}}</li>
+                <li><strong>Modelo</strong>: {{products.modelo}}</li>
+                <li><strong>Precio</strong>: $ {{products.precio}}</li>
               </ul>
             </div>
             <div class="portfolio-description">
               <h2>Descripción</h2>
               <p>
-                {{}}
+                {{products.descripcion}}
               </p>
             </div>
           </div>

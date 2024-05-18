@@ -1,9 +1,9 @@
 # Proyecto Final CoderHosue
 Comision: 54135
-Alumno: Lopez Carlos David
+Alumnos: Lopez Carlos David y Agustin Elias Mattar Insua
 
 # Acerca del proyecto
-Este proyecto es el principio de un E.commerce, dedicado al mundo automotor.
+Este proyecto es un E.commerce, dedicado al mundo automotor.
 
 # Aplicaciones
 - Core
@@ -14,10 +14,15 @@ Este proyecto es el principio de un E.commerce, dedicado al mundo automotor.
 - Persona
 - Direccion
 - Contacto
+- Products
+- Llanta
+- Alerone
+- Intake
+- Spoiler
+- Widebody
 
 # Mejoras Futuras
-- Agregar buscador de productos
-- Agregar pagina con informacion del producto
+- 
 
 # Problemas Conocidos
 
