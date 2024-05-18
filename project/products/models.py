@@ -1,19 +1,18 @@
 from django.db import models
 
-class Products(models.Model):
+class Productos(models.Model):
     CATEGORIES = [
-        ('llanta', 'Llanta'),
-        ('aleron', 'Aleron'),
-        ('spoiler', 'Spoiler'),
-        ('intake', 'Intake'),
+        ('llantas', 'Llantas'),
+        ('alerones', 'Alerones'),
+        ('spoilers', 'Spoilers'),
+        ('intakes', 'Intakes'),
         ('widebody', 'Widebody'),
         ]
     marca = models.CharField(max_length=30)
     modelo = models.CharField(max_length=30)
     material = models.CharField(max_length=30)
     precio = models.DecimalField(max_digits=8, decimal_places=2)
-    categoria = models.CharField(max_length=30, choices=CATEGORIES, default='llanta')
-    descripcion = models.TextField( default='Descripcion del producto')
+    categoria = models.CharField(max_length=30, choices=CATEGORIES, default='llantas')
 
     class Meta:
         abstract = True
@@ -21,20 +20,20 @@ class Products(models.Model):
     def __str__(self):
         return f"{self.marca} {self.modelo}"
 
-class Llanta(Products):
+class Llantas(Productos):
     diametro = models.DecimalField(max_digits=5, decimal_places=2)
     medida_centro = models.CharField(max_length=15)
 
-class Aleron(Products):
+class Alerones(Productos):
     altura = models.DecimalField(max_digits=5, decimal_places=2)
     
 
-class Spoiler(Products):
+class Spoilers(Productos):
     pass
 
 
-class Intake(Products):
+class Intakes(Productos):
     pass
 
-class Widebody(Products):
+class Widebody(Productos):
     pass

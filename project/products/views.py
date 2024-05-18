@@ -1,52 +1,50 @@
 from django.shortcuts import render
-from .models import Products, Llanta, Aleron, Spoiler, Intake, Widebody
+from .models import Llantas, Alerones, Spoilers, Intakes, Widebody
 
-def llanta_view(request):
-    return render(request, 'products/llanta.html')
+def llantas_view(request):
+    return render(request, 'products/llantas.html')
 
-def spoiler_view(request):
-    return render(request, 'products/spoiler.html')
+def spoilers_view(request):
+    return render(request, 'products/spoilers.html')
 
-def aleron_view(request):
-    return render(request, 'products/aleron.html')
+def alerones_view(request):
+    return render(request, 'products/alerones.html')
 
-def intake_view(request):
-    return render(request, 'products/intake.html')
+def intakes_view(request):
+    return render(request, 'products/intakes.html')
 
 def widebody_view(request):
     return render(request, 'products/widebody.html')
 
 #-----------------------------------------------------------------------------------#
 
-def portfolio_details(request):
-    return render(request, 'products/portfolio-details.html')
-def llanta(request):
+def llantas(request):
     q = request.GET.get(['q'], None)
     if q:
         print(q)
-        products = Llanta.objects.filter(marca__icontains=q)
+        products = Llantas.objects.filter(marca__icontains=q)
     else:
-        products = Llanta.objects.all()
+        products = Llantas.objects.all()
         
     context = {"products": products}
-    return render(request, 'products/llanta.html', context)
+    return render(request, 'products/llantas.html', context)
 
-#def llanta(request):
+#def llantas(request):
     q = request.GET.get('q', '')
-    products = Aleron.objects.filter(categoria='aleron', marca__icontains=q)
-    return render(request, 'products/aleron.html', {'products': products})
+    products = Alerones.objects.filter(categoria='alerones', marca__icontains=q)
+    return render(request, 'products/alerones.html', {'products': products})
 
-#def llanta(request):
+#def llantas(request):
     q = request.GET.get('q', '')
-    products = Spoiler.objects.filter(categoria='spoiler', marca__icontains=q)
-    return render(request, 'products/spoiler.html', {'products': products})
+    products = Spoilers.objects.filter(categoria='spoilers', marca__icontains=q)
+    return render(request, 'products/spoilers.html', {'products': products})
 
-#def llanta(request):
+#def llantas(request):
     q = request.GET.get('q', '')
-    products = Intake.objects.filter(categoria='intake', marca__icontains=q)
-    return render(request, 'products/intake.html', {'products': products})
+    products = Intakes.objects.filter(categoria='intakes', marca__icontains=q)
+    return render(request, 'products/intakes.html', {'products': products})
 
-#def llanta(request):
+#def llantas(request):
     q = request.GET.get('q', '')
     products = Widebody.objects.filter(categoria='widebody', marca__icontains=q)
     return render(request, 'products/widebody.html', {'products': products})

@@ -25,7 +25,7 @@
 
         <section class="inner-page">
             <div class="container">
-                <form method="get" action="{% url 'products:llanta' %}">
+                <form method="get" action="{% url 'products:llantas' %}">
                     <input type="text" name="q" placeholder="Buscar productos...">
                 </form>
             </div>
@@ -43,7 +43,7 @@
                                 <h4>{{ product.modelo }}</h4>
                                 <div class="portfolio-links">
                                     <a href="{% static 'core/assets/img/portfolio/t37.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                                    <a href="{% url 'products:portfolio-details' %}" title="More Details"><i class="bx bx-link"></i></a>
+                                    <a href="{% url 'core:portfolio-details' %}" title="More Details"><i class="bx bx-link"></i></a>
                                 </div>
                             </div>
                         </div>
