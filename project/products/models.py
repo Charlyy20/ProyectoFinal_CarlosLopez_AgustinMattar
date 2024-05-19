@@ -1,6 +1,6 @@
 from django.db import models
 
-class Productos(models.Model):
+class Products(models.Model):
     CATEGORIES = [
         ('llantas', 'Llantas'),
         ('alerones', 'Alerones'),
@@ -21,7 +21,7 @@ class Productos(models.Model):
     def __str__(self):
         return f"{self.marca} {self.modelo}"
 
-class Llantas(Productos):
+class Llanta(Products):
     diametro = models.DecimalField(max_digits=5, decimal_places=2)
     medida_centro = models.CharField(max_length=15)
 
@@ -29,12 +29,12 @@ class Aleron(Products):
     altura = models.CharField(max_length=15)
     
 
-class Spoilers(Productos):
+class Spoiler(Products):
     pass
 
 
-class Intakes(Productos):
+class Intake(Products):
     pass
 
-class Widebody(Productos):
+class Widebody(Products):
     pass
