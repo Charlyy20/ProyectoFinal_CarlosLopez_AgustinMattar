@@ -273,5 +273,13 @@
    * Initiate Pure Counter 
    */
   new PureCounter();
+  
+  window.onload = function() {
+    var desplegables = document.querySelectorAll('.desplegable');
+    desplegables.forEach(function(desplegable) {
+        var contenido = desplegable.querySelector('.contenido');
+        contenido.style.display = 'none';
+    });
+  };
 
 })()

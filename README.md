@@ -14,10 +14,16 @@ Este proyecto es el principio de un E.commerce, dedicado al mundo automotor.
 - Persona
 - Direccion
 - Contacto
+- Products
+- Llanta
+- Aleron
+- Intake
+- Spoiler
+- Widebody
 
 # Mejoras Futuras
-- Agregar buscador de productos
-- Agregar pagina con informacion del producto
+- Redirecciones del Footer funcionando
+- Carrito de Compras
 
 # Problemas Conocidos
 

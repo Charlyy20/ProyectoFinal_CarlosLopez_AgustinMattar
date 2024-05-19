@@ -28,19 +28,10 @@
                 <div class="col-lg-6 mt-5 mt-lg-0">                    
                     <form method="post">
                         {% csrf_token %}
-                        
-                        
-                        <legend style="padding-bottom: 35px;">Datos de Usuario</legend>
-                        
-                            
-
-                        {{ form.username.label_tag }}
-                        
+                        <legend style="padding-bottom: 35px;">Datos de Usuario</legend>                     
                         <div class="contenedor-form-username">
                             {{ form.username }}
-                        </div>                            
-                        
-                        {{ form.password.label_tag }}
+                        </div>                                                    
                         <div class="contenedor-form-username">
                             {{ form.password }}
                         </div>                 

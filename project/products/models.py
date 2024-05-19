@@ -12,7 +12,8 @@ class Productos(models.Model):
     modelo = models.CharField(max_length=30)
     material = models.CharField(max_length=30)
     precio = models.DecimalField(max_digits=8, decimal_places=2)
-    categoria = models.CharField(max_length=30, choices=CATEGORIES, default='llantas')
+    categoria = models.CharField(max_length=30, choices=CATEGORIES, default='llanta')
+    descripcion = models.TextField()
 
     class Meta:
         abstract = True
@@ -24,8 +25,8 @@ class Llantas(Productos):
     diametro = models.DecimalField(max_digits=5, decimal_places=2)
     medida_centro = models.CharField(max_length=15)
 
-class Alerones(Productos):
-    altura = models.DecimalField(max_digits=5, decimal_places=2)
+class Aleron(Products):
+    altura = models.CharField(max_length=15)
     
 
 class Spoilers(Productos):

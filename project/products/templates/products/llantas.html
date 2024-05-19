@@ -22,36 +22,41 @@
 
         </div>
         </section><!-- End Breadcrumbs -->
-
+        
+        <div class="text-center" style="margin-top: 10px;">
+            <a href="{% url 'products:create_llanta' %}" class="boton-create">Crear Producto</a>
+        </div>
+        
         <section class="inner-page">
             <div class="container">
-                <form method="get" action="{% url 'products:llantas' %}">
+                <form  action="{% url 'products:llanta' %}" method="get">
                     <input type="text" name="q" placeholder="Buscar productos...">
+                    <button type="submit">Buscar</button>
                 </form>
-            </div>
-        </section>
-        
-        <section id="portfolio">
-        <div class="container" data-aos="fade-up">
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                {% for product in products %}
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                        <div class="portfolio-wrap">  
-                            <img src="{% static 'core/assets/img/portfolio/t37.jpg' %}" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h3>{{ product.marca }}</h3>
-                                <h4>{{ product.modelo }}</h4>
-                                <div class="portfolio-links">
-                                    <a href="{% static 'core/assets/img/portfolio/t37.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                                    <a href="{% url 'core:portfolio-details' %}" title="More Details"><i class="bx bx-link"></i></a>
-                                </div>
+                <div class="row" style="padding-top: 25px;">
+                    {% for llanta in llantas %}
+                        <div class="col-md-4 mb-4">
+                            <div class="card" style="border: 2px solid #343a40;">
+                                <div class="card-body" style="max-height: 330px;">
+                                    <img src="{{ llanta.imagen_url }}" alt="Imagen de la llanta" style="padding-bottom: 20px;">
+                                    <h5 class="card-title">{{ llanta.marca }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ llanta.modelo }}</h6>
+                                    <p class="card-text">ID: {{ llanta.id }}</p>
+                                    <p class="card-price">Precio: {{ llanta.precio }}$</p>
+                                    <div id="boton" style="text-align: center; padding-bottom: 13px;">
+                                        <a href="#" class="boton-create">Más detalles</a>
+                                    </div>
+                                </div>    
+                                <div style="border-top: 2px solid #343a40; padding: 13px 0px; text-align: center;">
+                                    <a href="#" class="btn btn-primary">Modificar Producto</a>
+                                    <a href="#" class="btn btn-danger">Eliminar Producto</a>
+                                </div>                               
                             </div>
                         </div>
-                    </div>
-                {% endfor %}                    
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-        </section><!-- End Portfolio Section -->
+        </section>      
 
     </main><!-- End #main -->
 {% endblock content %}
