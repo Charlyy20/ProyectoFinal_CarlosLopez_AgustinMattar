@@ -9,3 +9,10 @@ def home(request):
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
     template_name = 'core/login.html'
+    
+    
+    
+def logoutpage(request):
+    return render(request,'core/logoutpage.html')
+    
+    

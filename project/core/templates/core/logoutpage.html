@@ -1,0 +1,67 @@
+{% extends 'core/inner-page.html' %}
+{% load static %}
+
+{% block title %}
+    Iniciar Sesión - CAA
+{% endblock title %}
+
+{% block content %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+    
+            <div class=" justify-content-between align-items-center">
+                <h2>Logout</h2>
+                
+            </div>
+        </div>    
+    </section><!-- End Breadcrumbs -->    
+    <br>
+    
+    
+    
+            
+    <div class="container">
+        <div class="row ">
+            <div class="col-3">
+
+            </div>
+            <div class="col-6 text-center ">
+                <h1>¡Muchas gracias por tu visita a nuestro sitio web!</h1>
+            </div>
+            <div class="col-3">
+                        
+            </div>
+                    
+                    
+        </div>
+            
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+                    
+            <div class="col-3">
+
+            </div>
+            <div class="col-6 text-center ">
+                <h2>¡Que tengas buen día!</h2>
+                <a href="{% url 'core:home' %}">Volver a la página principal</a>
+            </div>
+            <div class="col-3">
+                        
+            </div>
+                    
+        </div>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+                
+    </div>
+        
+    
+{% endblock content %}
