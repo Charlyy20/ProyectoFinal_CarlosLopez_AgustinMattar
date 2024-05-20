@@ -33,7 +33,7 @@ def widebody_view(request):
 
 def create_product(request, form_class, redirect_url, category):
     if request.method == 'POST':
-        form = form_class(request.POST)
+        form = form_class(request.POST, request.FILES)
         if form.is_valid():
             product = form.save(commit=False)
             product.categoria = category

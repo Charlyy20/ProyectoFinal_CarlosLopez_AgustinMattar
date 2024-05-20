@@ -14,6 +14,7 @@ class Products(models.Model):
     precio = models.DecimalField(max_digits=8, decimal_places=2)
     categoria = models.CharField(max_length=30, choices=CATEGORIES, default='llanta')
     descripcion = models.TextField()
+    imagen = models.ImageField(upload_to='products', null=True, blank=True)
 
     class Meta:
         abstract = True

@@ -28,7 +28,7 @@
     
     <section class="inner-page">
         <div class="container">
-            <form action="{% url 'products:aleron' %}" method="get">
+            <form action="{% url 'products:aleron' %}" method="get"></form>
                 <input type="text" name="q" placeholder="Buscar productos...">
                 <button type="submit">Buscar</button>
             </form>
@@ -36,12 +36,15 @@
                 {% for aleron in alerones %}
                     <div class="col-md-4 mb-4">
                         <div class="card" style="border: 2px solid #343a40;">
-                            <div class="card-body" style="max-height: 330px;">
-                                <img src="{{ aleron.imagen_url }}" alt="Imagen del aleron" style="padding-bottom: 20px;">
-                                <h5 class="card-title">{{ aleron.marca }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ aleron.modelo }}</h6>
-                                <p class="card-text">ID: {{ aleron.id }}</p>
-                                <p class="card-price">Precio: {{ aleron.precio }}$</p>
+                            <div class="card-body" style="padding: 0%;">
+                                <div class="img-content" style="overflow: hidden; width: 100%; max-height: 40vh;">
+                                    <img src="{{aleron.imagen.url}}" alt="Imagen del alerón" style="width: 100%; height: auto;">
+                                </div>
+                                <div class="product-information" style="padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);">
+                                    <h5 class="card-title">{{ aleron.marca }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ aleron.modelo }}</h6>
+                                    <p class="card-price" style="padding-bottom: 0px;">Precio: ${{ aleron.precio }}</p>
+                                </div>
                                 <div id="boton" style="text-align: center; padding-bottom: 13px;">
                                     <a href="{% url 'products:detalle_aleron' aleron.id %}" class="boton-create">Más detalles</a>
                                 </div>

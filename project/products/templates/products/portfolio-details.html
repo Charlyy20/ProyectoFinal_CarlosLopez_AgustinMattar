@@ -30,8 +30,8 @@
 
           <div class="row gy-4">
 
-            <div class="col-lg-8">
-              <img src="{{ producto.imagen_url }}" alt="Imagen del producto" style="padding-bottom: 20px;">
+            <div class="col-lg-8" style="text-align: center;">
+              <img src="{{ producto.imagen.url }}" alt="Imagen del producto" style="padding-bottom: 20px; width: 85%; height: auto;">
             </div>
 
             <div class="col-lg-4">
@@ -45,7 +45,7 @@
                           <li><strong>Diámetro</strong>: {{ producto.diametro }}"</li>
                           <li><strong>Medida del centro</strong>: {{ producto.medida_centro }}</li>
                       {% elif producto.altura %}
-                          <li><strong>Altura</strong>: {{ producto.altura }}</li>
+                          <li><strong>Altura</strong>: {{ producto.altura }}cm</li>
                       {% endif %}
                   </ul>
               </div>

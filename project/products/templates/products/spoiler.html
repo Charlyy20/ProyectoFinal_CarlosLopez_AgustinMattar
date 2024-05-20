@@ -36,12 +36,15 @@
                 {% for spoiler in spoilers %}
                     <div class="col-md-4 mb-4">
                         <div class="card" style="border: 2px solid #343a40;">
-                            <div class="card-body" style="max-height: 330px;">
-                                <img src="{{ spoiler.imagen_url }}" alt="Imagen del spoiler" style="padding-bottom: 20px;">
-                                <h5 class="card-title">{{ spoiler.marca }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ spoiler.modelo }}</h6>
-                                <p class="card-text">ID: {{ spoiler.id }}</p>
-                                <p class="card-price">Precio: {{ spoiler.precio }}$</p>
+                            <div class="card-body" style="padding: 0%;">
+                                <div class="img-content" style="overflow: hidden; width: 100%; max-height: 40vh;">
+                                    <img src="{{spoiler.imagen.url}}" alt="Imagen del spoiler" style="width: 100%; height: auto;">
+                                </div>
+                                <div class="product-information" style="padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);">
+                                    <h5 class="card-title">{{ spoiler.marca }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ spoiler.modelo }}</h6>
+                                    <p class="card-price" style="padding-bottom: 0px;">Precio: ${{ spoiler.precio }}</p>
+                                </div>
                                 <div id="boton" style="text-align: center; padding-bottom: 13px;">
                                     <a href="{% url 'products:detalle_spoiler' spoiler.id %}" class="boton-create">Más detalles</a>
                                 </div>

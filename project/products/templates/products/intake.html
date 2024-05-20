@@ -28,7 +28,7 @@
     
     <section class="inner-page">
         <div class="container">
-            <form action="{% url 'products:intake' %}" method="get">
+            <form action="{% url 'products:intake' %}" method="get"></form>
                 <input type="text" name="q" placeholder="Buscar productos...">
                 <button type="submit">Buscar</button>
             </form>
@@ -36,12 +36,15 @@
                 {% for intake in intakes %}
                     <div class="col-md-4 mb-4">
                         <div class="card" style="border: 2px solid #343a40;">
-                            <div class="card-body" style="max-height: 330px;">
-                                <img src="{{ intake.imagen_url }}" alt="Imagen del intake" style="padding-bottom: 20px;">
-                                <h5 class="card-title">{{ intake.marca }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ intake.modelo }}</h6>
-                                <p class="card-text">ID: {{ intake.id }}</p>
-                                <p class="card-price">Precio: {{ intake.precio }}$</p>
+                            <div class="card-body" style="padding: 0%;">
+                                <div class="img-content" style="overflow: hidden; width: 100%; max-height: 40vh;">
+                                    <img src="{{intake.imagen.url}}" alt="Imagen del intake" style="width: 100%; height: auto;">
+                                </div>
+                                <div class="product-information" style="padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);">
+                                    <h5 class="card-title">{{ intake.marca }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ intake.modelo }}</h6>
+                                    <p class="card-price" style="padding-bottom: 0px;">Precio: ${{ intake.precio }}</p>
+                                </div>
                                 <div id="boton" style="text-align: center; padding-bottom: 13px;">
                                     <a href="{% url 'products:detalle_intake' intake.id %}" class="boton-create">Más detalles</a>
                                 </div>
