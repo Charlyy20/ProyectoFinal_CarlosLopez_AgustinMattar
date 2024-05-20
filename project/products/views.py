@@ -7,6 +7,18 @@ from .forms import LlantaCreateForm, AleronCreateForm, SpoilerCreateForm, Intake
 
 # ============= Views ============ #
 
+#def home(request):
+    
+    #q = request.GET.get("q", None)
+
+    #if q:
+        #query = Products.objects.filter(marca__icontains=q)
+        
+    #else:
+        #query = Products.objects.all()
+    #context = {"productos": query}
+    #return render(request, 'core/index.html', context)
+
 def llanta_view(request):
     llantas = Llanta.objects.all()
     return render(request, 'products/llanta.html', {'llantas': llantas})
@@ -29,15 +41,17 @@ def widebody_view(request):
 
 # ============= Buscador View ============ #
 
-def buscador(request):
-    q = request.GET.get("q", None)
-    if q:
-        query = Llanta.objects.filter(modelo__icontains=q) | Llanta.objects.filter(marca__icontains=q)
-    else:
-        query = Llanta.objects.all()
+def product_search(request, model, template_name):
+    q = request.GET.get("q", "")
     
-    context = {"query": query}
-    return render(request, 'products/llanta.html', context)
+    if q:
+        query = model.objects.filter(marca__icontains=q) | model.objects.filter(modelo__icontains=q)
+    else:
+        query = model.objects.all()
+    context = {"productos": query}
+    return render(request, template_name, context)  
+
+# ============= Buscador View ============ #
 
 # ============= Froms Create Views ============ #
 
