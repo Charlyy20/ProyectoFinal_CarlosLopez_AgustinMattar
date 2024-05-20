@@ -22,7 +22,7 @@ class Products(models.Model):
         return f"{self.marca} {self.modelo}"
 
 class Llanta(Products):
-    diametro = models.DecimalField(max_digits=5, decimal_places=2)
+    diametro = models.DecimalField(max_digits=5, decimal_places=0)
     medida_centro = models.CharField(max_length=15)
 
 class Aleron(Products):

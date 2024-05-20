@@ -1544,8 +1544,7 @@ Card Style
 .boton-create {
   color: #343a40;
   border-radius: 4px;
-  background-color: transparent;
-  border-color: #ffbb38;
+  background-color: #ffbb38;
   padding: 7px 25px 8px 25px;
   white-space: nowrap;
   transition: 0.3s;
@@ -1556,6 +1555,7 @@ Card Style
 .boton-create:hover {
   background: #343a40;
   color: #fff;
+  border-color: #ffbb38;
 }
 
 /*--------------------------------------------------------------

@@ -1,9 +1,8 @@
-<!-- templates/products/create.html -->
 {% extends 'core/inner-page.html' %}
 {% load static %}
 
 {% block title %}
-    Crear Productos - CAA
+    Actualizar Producto - CAA
 {% endblock title %}
 
 {% block content %}
@@ -13,10 +12,10 @@
     <section class="breadcrumbs">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Crear Productos</h2>
+                <h2>Actualizar Producto</h2>
                 <ol>
                     <li><a href="{% url 'core:home' %}">Inicio</a></li>
-                    <li>Crear</li>
+                    <li>Actualizar</li>
                 </ol>
             </div>
         </div>
@@ -28,17 +27,11 @@
             <table>
                 {{ form.as_table }}
             </table>
-            <button type="submit">Guardar Producto</button>
+            <button type="submit">Guardar Cambios</button>
         </form>
     </div>
 </main><!-- End #main -->
 
-<script>
-    function toggleDesplegable(span) {
-        var contenido = span.nextElementSibling;
-        contenido.style.display = (contenido.style.display === "block") ? "none" : "block";
-    }
-</script>
 <script src="{% static 'core/assets/js/main.js' %}"></script>
 
 {% endblock content %}

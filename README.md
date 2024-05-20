@@ -7,8 +7,8 @@ Este proyecto es un E.commerce, dedicado al mundo automotor.
 
 # Aplicaciones
 - Core
-- Register
 - Products
+- Register
 
 # Modelos
 - Persona
@@ -24,6 +24,7 @@ Este proyecto es un E.commerce, dedicado al mundo automotor.
 # Mejoras Futuras
 - Redirecciones del Footer funcionando
 - Carrito de Compras
+- Perfiles de Usuarios
 
 # Problemas Conocidos
 

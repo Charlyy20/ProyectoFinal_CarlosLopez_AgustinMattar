@@ -1,42 +1,27 @@
 from django import forms
-from . import models
-    
+from .models import Llanta, Aleron, Spoiler, Intake, Widebody
+
 class LlantaCreateForm(forms.ModelForm):
     class Meta:
-        model = models.Llanta
-        fields = "__all__"
-        widgets = {
-        
-        }
-        
+        model = Llanta
+        exclude = ['categoria']
+
 class AleronCreateForm(forms.ModelForm):
     class Meta:
-        model = models.Aleron
-        fields = "__all__"
-        widgets = {
-            
-        }
-        
+        model = Aleron
+        exclude = ['categoria']
+
 class SpoilerCreateForm(forms.ModelForm):
     class Meta:
-        model = models.Spoiler
-        fields = "__all__"
-        widgets = {
-            
-        }
-        
+        model = Spoiler
+        exclude = ['categoria']
+
 class IntakeCreateForm(forms.ModelForm):
     class Meta:
-        model = models.Intake
-        fields = "__all__"
-        widgets = {
-            
-        }
-        
+        model = Intake
+        exclude = ['categoria']
+
 class WidebodyCreateForm(forms.ModelForm):
     class Meta:
-        model = models.Widebody
-        fields = "__all__"
-        widgets = {
-            
-        }
+        model = Widebody
+        exclude = ['categoria']
