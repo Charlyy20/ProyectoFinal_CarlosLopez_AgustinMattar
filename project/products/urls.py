@@ -27,7 +27,5 @@ urlpatterns = [
     path('spoilers/', views.product_search, {'model': Spoiler, 'template_name': 'products/spoiler.html'}, name='spoiler_search'),
     path('intakes/', views.product_search, {'model': Intake, 'template_name': 'products/intake.html'}, name='intake_search'),
     path('widebody/', views.product_search, {'model': Widebody, 'template_name': 'products/widebody.html'}, name='widebody_search'),
-    
-
 
 ]
