@@ -1,242 +1,64 @@
+{% extends 'core/inner-page.html' %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>
     {% block title2 %}
       Detalles de Producto - CAA
     {% endblock title2 %}   
-  </title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="{% static 'core/assets/img/caa.png' %}" rel="icon">
-  <link href="{% static 'core/assets/img/caa.touch.png' %}" rel="apple-touch-icon">
+  {% block content %}
+    <main id="main">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+      <!-- ======= Breadcrumbs ======= -->
+      <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'core/assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'core/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'core/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'core/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'core/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'core/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
-  <link href="{% static 'core/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Detalles de Producto</h2>
+            <ol>
+              <li><a href="{% url 'core:home' %}">Inicio</a></li>
+              <li>Detalles Productos</li>
+            </ol>
+          </div>
 
-  <!-- Template Main CSS File -->
-  <link href="{% static 'core/assets/css/style.css' %}" rel="stylesheet">
+        </div>
+      </section><!-- End Breadcrumbs -->
 
-</head>
+      <!-- ======= Portfolio Details Section ======= -->
+      <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
 
-<body>
+          <div class="row gy-4">
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-inner-pages">
-    <div class="container d-flex align-items-center justify-content-lg-between">
+            <div class="col-lg-8" style="text-align: center;">
+              <img src="{{ producto.imagen.url }}" alt="Imagen del producto" style="padding-bottom: 20px; width: 85%; height: auto;">
+            </div>
 
-      <h1 class="logo me-auto me-lg-0"><a href="{% url 'core:home' %}">CA Autopartes<span>.</span></a></h1>
+            <div class="col-lg-4">
+              <div class="portfolio-info">
+                <h3>Informacion del Producto</h3>
+                  <ul>
+                      <li><strong>Marca</strong>: {{ producto.marca }}</li>
+                      <li><strong>Modelo</strong>: {{ producto.modelo }}</li>
+                      <li><strong>Precio</strong>: ${{ producto.precio }}</li>
+                      {% if producto.diametro %}
+                          <li><strong>Diámetro</strong>: {{ producto.diametro }}"</li>
+                          <li><strong>Medida del centro</strong>: {{ producto.medida_centro }}</li>
+                      {% elif producto.altura %}
+                          <li><strong>Altura</strong>: {{ producto.altura }}cm</li>
+                      {% endif %}
+                  </ul>
+              </div>
+              <div class="portfolio-description">
+                <h2>Descripción</h2>
+                <p>
+                  {{producto.descripcion}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- End Portfolio Details Section -->
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="{% url 'core:home' %}">Inicio</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'core:home' %}#about">Acerca de Nosotros</a></li>
-          <li><a class="nav-link scrollto " href="{% url 'core:home' %}#portfolio">Galeria</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'core:home' %}#team">Equipo</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'core:home' %}#contact">Contacto</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <div>
-        {% if user.is_authenticated %}
-          <form action="{% url 'core:logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="boton-logout-innerpage">Desloguearse</button>
-          </form>
-        {% else %}
-          <a href="{% url 'register:register' %}" class="get-started-btn scrollto" style="margin-right: 7px;">Registrarte</a>
-          <a href="{% url 'core:login' %}" class="get-started-btn scrollto">Iniciar Sesión</a>
-        {% endif %}
-      </div>
-      
-    </div>
-  </header><!-- End Header -->
-
-  {% block content %}   
+    </main><!-- End #main -->
   {% endblock content %}
-
-<!-- ============= CODIGO A CORTAR ============ -->
-
-  <main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Detalles de Producto</h2>
-          <ol>
-            <li><a href="{% url 'core:home' %}">Inicio</a></li>
-            <li>Detalles Productos</li>
-          </ol>
-        </div>
-
-      </div>
-    </section><!-- End Breadcrumbs -->
-
-    <!-- ======= Portfolio Details Section ======= -->
-    <section id="portfolio-details" class="portfolio-details">
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="{% static 'core/assets/img/portfolio/t37.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'core/assets/img/portfolio/oz.jpg' %}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{% static 'core/assets/img/portfolio/t37.jpg' %}" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Informacion del Producto</h3>
-              {% if llanta %}
-                <ul>
-                    <li><strong>Categoría</strong>: {{ llanta.categoria }}</li>
-                    <li><strong>Marca</strong>: {{ llanta.marca }}</li>
-                    <li><strong>Modelo</strong>: {{ llanta.modelo }}</li>
-                    <li><strong>Precio</strong>: $ {{ llanta.precio }}</li>
-                    <!-- Agregar otros campos específicos de la llanta -->
-                </ul>
-              {% endif %}
-            
-              {% if aleron %}
-                <h2>Detalles del Alerón</h2>
-                <ul>
-                    <li><strong>Categoría</strong>: {{ aleron.categoria }}</li>
-                    <li><strong>Marca</strong>: {{ aleron.marca }}</li>
-                    <li><strong>Modelo</strong>: {{ aleron.modelo }}</li>
-                    <li><strong>Precio</strong>: $ {{ aleron.precio }}</li>
-                    <!-- Agregar otros campos específicos del alerón -->
-                </ul>
-              {% endif %}
-            </div>
-            <div class="portfolio-description">
-              <h2>Descripción</h2>
-              <p>
-                {{products.descripcion}}
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Details Section -->
-
-  </main><!-- End #main -->
-
-<!-- ============= CODIGO A CORTAR ============ -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>CA Autopartes<span>.</span></h3>
-              <p>
-                Paraiso 9579<br>
-                El Palomar, Bs As<br><br>
-                <strong>Telefono:</strong> +54 9 11 4685-2384<br>
-                <strong>Email:</strong> info@carall.com<br>
-              </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Links Utiles</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca de Nosotros</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Galeria</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terminos de Servicio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Politica de Privacidad</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Actualizaciones de Productos</h4>
-            <p>Suscribete para obtener alertas de productos nuevos, ofertas y promociones y mucho mas!</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Suscribirse">
-            </form>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>CA Autopartes</span></strong>. Todos los derechos reservados
-      </div>
-      <div class="credits">
-        Diseñado por <a href="">Carlos Lopez</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="{% static 'core/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
-  <script src="{% static 'core/assets/vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'core/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'core/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'core/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'core/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'core/assets/vendor/php-email-form/validate.js' %}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{% static 'core/assets/js/main.js' %}"></script>
-
-</body>
-
-</html>

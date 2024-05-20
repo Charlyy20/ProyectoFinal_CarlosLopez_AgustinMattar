@@ -1,71 +1,104 @@
 {% extends 'core/inner-page.html' %}
+{% load static %}
 
 {% block title %}
     Productos - Alerones
 {% endblock title %}
 
 {% block content %}
-    <main id="main">
+<main id="main">
 
-        <!-- ======= Breadcrumbs ======= -->
-        <section class="breadcrumbs">
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
         <div class="container">
-
             <div class="d-flex justify-content-between align-items-center">
-            <h2>Alerones</h2>
-            <ol>
-                <li><a href="index.html">Inicio</a></li>
-                <li>Alerones</li>
-            </ol>
+                <h2>Alerones</h2>
+                <ol>
+                    <li><a href="{% url 'core:home' %}">Inicio</a></li>
+                    <li>Alerones</li>
+                </ol>
             </div>
-
         </div>
-        </section><!-- End Breadcrumbs -->
-
+    </section><!-- End Breadcrumbs -->
+                          
+    {% if user.is_authenticated and user.is_staff %}
         <div class="text-center" style="margin-top: 10px;">
             <a href="{% url 'products:create_aleron' %}" class="boton-create">Crear Producto</a>
         </div>
-
-        <section class="inner-page">
-            <div class="container">
-                
-                
-                <!--Buscador aleron-->
-
-                
-                <form action="{% url 'products:aleron_search' %}" method="GET">
-                    <input type="text" name="q" placeholder="Buscar productos...">
-                    <button type="submit">Buscar</button>
-                </form>
-                
-                <div class="row" style="padding-top: 25px;">
-
-                    {% for llanta in productos %}
-                        <div class="col-md-4 mb-4">
-                            <div class="card" style="border: 2px solid #343a40;">
-                                <div class="card-body" style="max-height: 330px;">
-                                    <h5 class="card-title">{{ llanta.marca }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ llanta.modelo }}</h6>
-                                    <p class="card-text">ID: {{ llanta.id }}</p>
-                                    <p class="card-price">Precio: {{ llanta.precio }}$</p>
-                                    <div id="boton" style="text-align: center; padding-bottom: 13px;">
-                                        <a href="#" class="boton-create">Más detalles</a>
-                                    </div>
+    {% endif %}
+                    
+    <section class="inner-page">
+        <div class="container">
+            <form action="{% url 'products:aleron_search' %}" method="GET">
+                <input type="text" name="q" placeholder="Buscar productos...">
+                <button type="submit">Buscar</button>
+            </form>
+            <div class="row" style="padding-top: 25px;">
+                {% for aleron in alerones %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card" style="border: 2px solid #343a40;">
+                            <div class="card-body" style="padding: 0%;">
+                                <div class="img-content" style="overflow: hidden; width: 100%; max-height: 40vh;">
+                                    <img src="{{aleron.imagen.url}}" alt="Imagen del alerón" style="width: 100%; height: auto;">
                                 </div>
-                                <div style="border-top: 2px solid #343a40; padding: 13px 0px; text-align: center;">
-                                    <a href="#" class="btn btn-primary">Modificar Producto</a>
-                                    <a href="#" class="btn btn-danger">Eliminar Producto</a>
+                                <div class="product-information" style="padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);">
+                                    <h5 class="card-title">{{ aleron.marca }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ aleron.modelo }}</h6>
+                                    <p class="card-price" style="padding-bottom: 0px;">Precio: ${{ aleron.precio }}</p>
+                                </div>
+                                <div id="boton" style="text-align: center; padding-bottom: 13px;">
+                                    <a href="{% url 'products:detalle_aleron' aleron.id %}" class="boton-create">Más detalles</a>
                                 </div>
                             </div>
+                            {% if user.is_authenticated and user.is_staff %}
+                            <div style="border-top: 2px solid #343a40; padding: 13px 0px; text-align: center;">
+                                <a href="{% url 'products:update_aleron' aleron.id %}" class="btn btn-primary">Modificar Producto</a>
+                                <button type="button" class="btn btn-danger" onclick="confirmDeletion('{{ aleron.id }}', '{{ aleron.marca }}', '{{ aleron.modelo }}')">Eliminar Producto</button>
+                            </div>
+                            {% endif %}
                         </div>
-                    {% endfor %}
-                </div>
-    
-                {% if productos.count == 0 %}
-                    <p>No se encontraron productos.</p>
-                {% endif %}
+                    </div>
+                {% endfor %}
             </div>
-        </section>
+            {% if productos.count == 0 %}
+                <p>No se encontraron productos.</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirmar eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <form id="deleteForm" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    </main><!-- End #main -->
-    {% endblock content %}
+</main><!-- End #main -->
+
+<script>
+    function confirmDeletion(aleronId, marca, modelo) {
+        var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        var message = "Desea eliminar " + marca + " " + modelo + "?";
+        document.getElementById('modalMessage').innerText = message;
+        var form = document.getElementById('deleteForm');
+        form.action = "{% url 'products:delete_aleron' 0 %}".replace('0', aleronId);
+        modal.show();
+    }
+</script>
+
+{% endblock content %}

@@ -1,5 +1,7 @@
-from django.shortcuts import render, redirect, HttpResponse
-from . import models, forms 
+from django.shortcuts import render, HttpResponse
+from django.contrib.auth.forms import UserCreationForm
+from.models import Cuenta
+from . import forms
 
 def register(request):
     return render(request, 'register/register.html')
@@ -8,20 +10,19 @@ def register_person(request):
     print("Received a request:", request.method)
     if request.method == 'POST':
         persona = forms.PersonaForm(request.POST)
-        direccion = forms.DireccionForm(request.POST)
         contacto = forms.ContactoForm(request.POST)
-        if persona.is_valid() and direccion.is_valid() and contacto.is_valid():
+        user_form = UserCreationForm(request.POST)
+        if persona.is_valid() and contacto.is_valid() and user_form.is_valid():
+            user_instancia = user_form.save()
             persona_instancia = persona.save()
-            direccion_instancia = direccion.save(commit=False)
-            direccion_instancia.persona = persona_instancia
-            direccion_instancia.save()
             contacto_instancia = contacto.save(commit=False)
             contacto_instancia.persona = persona_instancia
             contacto_instancia.save()
+            cuenta = Cuenta.objects.create(user=user_instancia, persona=persona_instancia)
             print("Form is valid and saved.")
             return HttpResponse('OK',content_type="text/plain", status=200)
         else:
-            print("Form is not valid:", persona.errors)
+            print("Form Invalido", persona.errors)           
     else:
         persona = forms.PersonaForm()
-    return render(request, 'register/register.html', {'form': {'persona': persona, 'direccion': direccion, 'contacto': contacto}})
+    return render(request, 'register/register.html', {'form': {'persona': persona, 'cuenta': user_form, 'contacto': contacto}})
