@@ -3,17 +3,17 @@ Comision: 54135
 Alumnos: Lopez Carlos David y Agustin Elias Mattar Insua
 
 # Acerca del proyecto
-Este proyecto es un E.commerce, dedicado al mundo automotor.
+Este proyecto es un E.commerce, dedicado al mundo automotor con prductos aftermarket.
 
 # Aplicaciones
 - Core
-- Register
 - Products
+- Register
 
 # Modelos
 - Persona
-- Direccion
 - Contacto
+- Cuenta
 - Products
 - Llanta
 - Aleron
@@ -22,11 +22,17 @@ Este proyecto es un E.commerce, dedicado al mundo automotor.
 - Widebody
 
 # Mejoras Futuras
+- Mejorar el Responsive
 - Redirecciones del Footer funcionando
 - Carrito de Compras
+- Perfiles de Usuarios
 
 # Problemas Conocidos
+- Hubo problemas con el Branch "Mattar-Dev". Por alguna razon desconocida el codigo dejo de correr y tirar errores en el .venv. 
+  El branch se dejo para poder constatar los commit realizados antes del problema.
 
+# Aclaraciones
+- Lo que es la imagen se aplico a los productos, para que de esa manera se pueda cargar una imagen. Asi tambien para mostrarla en la card y luego en el portfolio-details
 
 # Lista de Comandos Utiles
 

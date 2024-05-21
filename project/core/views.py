@@ -16,3 +16,6 @@ def logoutpage(request):
     return render(request,'core/logoutpage.html')
     
     
+    
+def aboutus(request):
+    return render(request,"core/aboutus.html")

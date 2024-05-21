@@ -1,23 +1,9 @@
-from django.shortcuts import render, redirect
-from django.views.generic import UpdateView
-from django.urls import reverse_lazy
-from django.http import HttpResponse
-from .models import Products, Llanta, Aleron, Spoiler, Intake, Widebody
-from .forms import LlantaCreateForm, AleronCreateForm, SpoilerCreateForm, IntakeCreateForm, WidebodyCreateForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Llanta, Aleron, Spoiler, Intake, Widebody
+from django.urls import reverse
+from django.apps import apps
 
 # ============= Views ============ #
-
-#def home(request):
-    
-    #q = request.GET.get("q", None)
-
-    #if q:
-        #query = Products.objects.filter(marca__icontains=q)
-        
-    #else:
-        #query = Products.objects.all()
-    #context = {"productos": query}
-    #return render(request, 'core/index.html', context)
 
 def llanta_view(request):
     llantas = Llanta.objects.all()
@@ -49,99 +35,84 @@ def product_search(request, model, template_name):
     else:
         query = model.objects.all()
     context = {"productos": query}
-    return render(request, template_name, context)  
+    return render(request, template_name, context)
 
-# ============= Buscador View ============ #
+# ============= Create Views ============ #
 
-# ============= Froms Create Views ============ #
-
-def create_llanta(request):
+def create_product(request, form_class, redirect_url, category):
     if request.method == 'POST':
-        form_llanta = LlantaCreateForm(request.POST)
-        if form_llanta.is_valid():
-            form_llanta.save()
-            return redirect('products:llanta')
+        form = form_class(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save(commit=False)
+            product.categoria = category
+            product.save()
+            return redirect(redirect_url)
     else:
-        form_llanta = LlantaCreateForm()
-    return render(request, 'products/create.html',context={'form_llantacreate': form_llanta})
+        form = form_class()
+    return render(request, 'products/create.html', {'form': form})
 
-def create_aleron(request):
+# ============= Update Views ============ #
+
+def update_product(request, pk, model_class, form_class, redirect_url):
+    product = get_object_or_404(model_class, pk=pk)
     if request.method == 'POST':
-        form_aleron = AleronCreateForm(request.POST)
-        if form_aleron.is_valid():
-            form_aleron.save()
-            return redirect('products:aleron')
+        form = form_class(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect(redirect_url)
     else:
-        form_aleron = AleronCreateForm()
-    return render(request, 'products/create.html',context={'form_aleroncreate': form_aleron})
+        form = form_class(instance=product)
+    return render(request, 'products/update.html', {'form': form})
 
-def create_spoiler(request):
-    if request.method == 'POST':
-        form_spoiler = SpoilerCreateForm(request.POST)
-        if form_spoiler.is_valid():
-            form_spoiler.save()
-            return redirect('products:spoiler')
-    else:
-        form_spoiler = SpoilerCreateForm()
-    return render(request, 'products/create.html',context={'form_spoilercreate': form_spoiler})
+# ============= Delete Views ============ #
 
-def create_intake(request):
-    if request.method == 'POST':
-        form_intake = IntakeCreateForm(request.POST)
-        if form_intake.is_valid():
-            form_intake.save()
-            return redirect('products:intake')
-    else:
-        form_intake = IntakeCreateForm()
-    return render(request, 'products/create.html',context={'form_intakecreate': form_intake})
+def delete_llanta(request, llanta_id):
+    llanta = get_object_or_404(Llanta, id=llanta_id)
+    llanta.delete()
+    return redirect(reverse('products:llanta'))
 
-def create_widebody(request):
-    if request.method == 'POST':
-        form_widebody = WidebodyCreateForm(request.POST)
-        if form_widebody.is_valid():
-            form_widebody.save()
-            return redirect('products:widebody')
-    else:
-        form_widebody = WidebodyCreateForm()
-    return render(request, 'products/create.html',context={'form_widebodycreate': form_widebody})
+def delete_aleron(request, aleron_id):
+    aleron = get_object_or_404(Aleron, id=aleron_id)
+    aleron.delete()
+    return redirect(reverse('products:aleron'))
 
-# ============= Froms Update Views ============ #
+def delete_spoiler(request, spoiler_id):
+    spoiler = get_object_or_404(Spoiler, id=spoiler_id)
+    spoiler.delete()
+    return redirect(reverse('products:spoiler'))
 
-class LlantaUpdateView(UpdateView):
-    model= Llanta
-    fields = '__all__'
-    template_name = 'products/update.html'
-    
-    def get_success_url(self):
-        pk = self.kwargs['pk']
-        return reverse_lazy('products:llanta', kwargs={'pk': pk})
+def delete_intake(request, intake_id):
+    intake = get_object_or_404(Intake, id=intake_id)
+    intake.delete()
+    return redirect(reverse('products:intake'))
 
-# ============= Froms Delete Views ============ #
 
-def delete_llanta(request, pk:int):
-    query = Llanta.objects.get(id=pk)
-    if request.method == 'POST':
-        query.delete()
-        return redirect('products:llanta')
-    return render(request, 'products/create.html',context={'form_llantacreate': query})
+def delete_widebody(request, widebody_id):
+    widebody = get_object_or_404(Widebody, id=widebody_id)
+    widebody.delete()
+    return redirect(reverse('products:widebody'))
 
 # ============= Details Views ============ #
 
+def detalle_llanta(request, pk):
+    llanta = get_object_or_404(Llanta, pk=pk)
+    return render(request, 'products/portfolio-details.html', {'producto': llanta})
+
+def detalle_aleron(request, pk):
+    aleron = get_object_or_404(Aleron, pk=pk)
+    return render(request, 'products/portfolio-details.html', {'producto': aleron})
+
+def detalle_intake(request, pk):
+    intake = get_object_or_404(Intake, pk=pk)
+    return render(request, 'products/portfolio-details.html', {'producto': intake})
+
+def detalle_spoiler(request, pk):
+    spoiler = get_object_or_404(Spoiler, pk=pk)
+    return render(request, 'products/portfolio-details.html', {'producto': spoiler})
+
+def detalle_widebody(request, pk):
+    widebody = get_object_or_404(Widebody, pk=pk)
+    return render(request, 'products/portfolio-details.html', {'producto': widebody})
+
 def portfolio_details(request,):
     return render(request, 'products/portfolio-details.html')
-
-#def product_detail(request, pk):
-    query = Llanta.objects.get(id=pk)
-    return render(request, 'products/portfolio_details.html', {'product': query})
-
-#def portfolio_details(request,pk):
-    print(pk)
-    try:
-        product = Products.objects.get(pk=pk)
-    except Products.DoesNotExist:
-        return HttpResponse(status=404)
-            
-    return render(request, 'products/portfolio-details.html', {'product': product})
-
-
-
