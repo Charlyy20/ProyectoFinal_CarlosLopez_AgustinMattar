@@ -1,0 +1,79 @@
+{% extends 'core/inner-page.html' %}
+{% load static %}
+
+{% block title %}
+    About Us - CAA
+{% endblock title %}
+
+{% block content %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+    
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>About Us</h2>
+            
+            </div>
+    
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="contact">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col  mt-5 mt-lg-0 d-flex align-items-center justify-content-center">
+                    <div class="col text-center">
+                        <h2>¿Quienes somos?</h2>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            
+            <div class="row">
+                <div class="col-lg-5  mt-5 mt-lg-0 d-flex align-items-center justify-content-center">                    
+                    <div class="col-7 text-center">
+                        <div class="content-aboutus-izquierda">
+                            <h2>Agustín Mattar</h2>
+                            <p> 
+                            Estudiante de Ingeniería en Sistemas en la UTN FRBA. Tengo experiencia laboral
+                            en proyectos de programación utilizando tecnologías como Git, HTML, JavaScript, Css, Python, entre otras.
+                            Actualmente dedicado al desarrollo profesional en el rubro de la programación. 22 años.  
+                            </p>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col-5">
+                        <img src="{% static 'core/assets/img/agus.jpg' %}" class="img-fluid" alt="" style="width: 100%; height: auto;">
+                    </div>
+                </div>        
+                
+                <div class="col-2">                    
+                    
+                </div>
+
+                <div class="col-lg-5  mt-5 mt-lg-0 d-flex align-items-center justify-content-center">
+                    <div class="col-7 text-center">
+                        <div class="content-aboutus-derecha">
+                            <h2>Carlos Lopez</h2>
+                            <p> 
+                            Estudiante de Ingeniería en Sistemas en la UTN FRBA. Tengo experiencia laboral
+                            en proyectos de programación utilizando tecnologías como Git, HTML, JavaScript, Css, Python, entre otras.
+                            Actualmente dedicado al desarrollo profesional en el rubro de la programación. 24 años.  
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-5">
+                        <img src="{% static 'core/assets/img/carlos.jpg' %}" class="img-fluid" alt="" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
