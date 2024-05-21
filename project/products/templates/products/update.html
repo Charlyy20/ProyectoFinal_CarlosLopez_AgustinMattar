@@ -21,17 +21,48 @@
         </div>
     </section><!-- End Breadcrumbs -->
     
-    <div class="col-lg-6 mt-5 mt-lg-0">
-        <form action="" method="post">
+    <div style="display: flex; justify-content: center;">
+        <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <table>
-                {{ form.as_table }}
+                {% for field in form %}
+                <tr>
+                    <td style="padding: 10px 0px;"><strong>{{ field.label_tag }}</strong></td>
+                    <td>
+                        {% if field.field.widget.input_type != 'hidden' %}
+                        {% if field.field.widget.input_type == 'number' %}
+                            <input type="number" step="any" name="{{ field.name }}" value="{{ field.value|default_if_none:'' }}" class="decimal-field">
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endif %}
+                        </td>
+                </tr>
+                {% endfor %}
             </table>
-            <button type="submit">Guardar Cambios</button>
+            <div style="text-align: center; padding: 20px 0px;">
+                <button type="submit" class="boton-more-details">Guardar Producto</button>
+            </div>
         </form>
     </div>
 </main><!-- End #main -->
 
 <script src="{% static 'core/assets/js/main.js' %}"></script>
+
+<style>
+    input[type="text"], input[type="email"], input[type="password"], textarea, .decimal-field {
+        font-size: 1rem;
+        box-shadow: none;
+        border-radius: 4px;
+        display: block;
+        width: calc(100% - 1.5rem);
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        padding: .375rem .75rem;
+        border: var(--bs-border-width) solid var(--bs-border-color);
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+</style>
 
 {% endblock content %}
