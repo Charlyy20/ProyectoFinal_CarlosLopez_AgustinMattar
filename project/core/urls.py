@@ -15,6 +15,7 @@ urlpatterns = [
     path('logoutpage/', views.logoutpage, name='logoutpage'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('aboutus/', views.aboutus, name='aboutus'),
+    path('descargarcv/', views.descargar_cv, name='descargar_cv'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
