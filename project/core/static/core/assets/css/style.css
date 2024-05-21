@@ -919,7 +919,7 @@ section {
 
 .portfolio-details .portfolio-info {
   padding: 30px;
-  box-shadow: 0px 0 30px rgba(21, 21, 21, 0.08);
+  box-shadow: 0px 0 30px rgba(21, 21, 21, 0.27);
 }
 
 .portfolio-details .portfolio-info h3 {
@@ -1548,15 +1548,39 @@ Card Style
   padding: 7px 25px 8px 25px;
   white-space: nowrap;
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
 }
 
 .boton-create:hover {
-  background: #343a40;
-  color: #fff;
-  border-color: #ffbb38;
+  background: #dfac36;
+  color: #343a40;
 }
+
+.boton-more-details{
+  color: #343a40;
+  background-color: #ffbb38;
+  padding: 7px 25px 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.button-cart {
+  padding: 7px 25px 8px 25px;
+  color: #fff;
+  background: #343a40;
+  font-size: 16px;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.button-cart:hover {
+  color: #fff;
+  background: #909c95;
+}
+
 
 /*--------------------------------------------------------------
 Div Desplegable

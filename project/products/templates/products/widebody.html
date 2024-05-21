@@ -47,8 +47,13 @@
                                         <h6 class="card-subtitle mb-2 text-muted">{{ widebody_kit.modelo }}</h6>
                                         <p class="card-price" style="padding-bottom: 0px;">Precio: ${{ widebody_kit.precio }}</p>
                                     </div>
-                                    <div id="boton" style="text-align: center; padding-bottom: 13px;">
-                                        <a href="{% url 'products:detalle_widebody' widebody_kit.id %}" class="boton-create">Más detalles</a>
+                                    <div style="padding-bottom: 13px; text-align: center;">
+                                        <div style="display: flex; flex-direction: column; padding-bottom: 4px;">
+                                            <a href="#" class="button-cart"><i class="fas fa-shopping-cart" style="color: #ffbb38;"></i> Añadir al Carrito</a>
+                                        </div>
+                                        <div style="display: flex; flex-direction: column;">
+                                            <a href="{% url 'products:detalle_widebody' widebody_kit.id %}" class="boton-more-details"><i class="fas fa-plus" style="color: #343a40;"></i> Más detalles</a>
+                                        </div>
                                     </div>
                                 </div>
                                 {% if user.is_authenticated and user.is_staff %}
@@ -73,8 +78,13 @@
                                         <h6 class="card-subtitle mb-2 text-muted">{{ widebody_kit.modelo }}</h6>
                                         <p class="card-price" style="padding-bottom: 0px;">Precio: ${{ widebody_kit.precio }}</p>
                                     </div>
-                                    <div id="boton" style="text-align: center; padding-bottom: 13px;">
-                                        <a href="{% url 'products:detalle_widebody' widebody_kit.id %}" class="boton-create">Más detalles</a>
+                                    <div style="padding-bottom: 13px; text-align: center;">
+                                        <div style="display: flex; flex-direction: column; padding-bottom: 4px;">
+                                            <a href="#" class="button-cart"><i class="fas fa-shopping-cart" style="color: #ffbb38;"></i> Añadir al Carrito</a>
+                                        </div>
+                                        <div style="display: flex; flex-direction: column;">
+                                            <a href="{% url 'products:detalle_widebody' widebody_kit.id %}" class="boton-more-details"><i class="fas fa-plus" style="color: #343a40;"></i> Más detalles</a>
+                                        </div>
                                     </div>
                                 </div>
                                 {% if user.is_authenticated and user.is_staff %}
