@@ -1,5 +1,7 @@
+from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Llanta, Aleron, Spoiler, Intake, Widebody
+from .forms import LlantaCreateForm, AleronCreateForm, SpoilerCreateForm, IntakeCreateForm, WidebodyCreateForm
 from django.urls import reverse
 from django.apps import apps
 
@@ -51,6 +53,26 @@ def create_product(request, form_class, redirect_url, category):
         form = form_class()
     return render(request, 'products/create.html', {'form': form})
 
+@permission_required('products.can_create_llanta')
+def create_llanta(request):
+    return create_product(request, LlantaCreateForm, 'products:llanta', 'llanta')
+
+@permission_required('products.can_create_aleron')
+def create_aleron(request):
+    return create_product(request, AleronCreateForm, 'products:aleron', 'aleron')
+
+@permission_required('products.can_create_spoiler')
+def create_spoiler(request):
+    return create_product(request, SpoilerCreateForm, 'products:spoiler', 'spoiler')
+
+@permission_required('products.can_create_intake')
+def create_intake(request):
+    return create_product(request, IntakeCreateForm, 'products:intake', 'intake')
+
+@permission_required('products.can_create_widebody')
+def create_widebody(request):
+    return create_product(request, WidebodyCreateForm, 'products:widebody', 'widebody')
+
 # ============= Update Views ============ #
 
 def update_product(request, pk, model_class, form_class, redirect_url):
@@ -64,29 +86,53 @@ def update_product(request, pk, model_class, form_class, redirect_url):
         form = form_class(instance=product)
     return render(request, 'products/update.html', {'form': form})
 
+@permission_required('products.can_update_llanta')
+def update_llanta(request, pk):
+    return update_product(request, pk, Llanta, LlantaCreateForm, 'products:llanta')
+
+@permission_required('products.can_update_aleron')
+def update_aleron(request, pk):
+    return update_product(request, pk, Aleron, AleronCreateForm, 'products:aleron')
+
+@permission_required('products.can_update_spoiler')
+def update_spoiler(request, pk):
+    return update_product(request, pk, Spoiler, SpoilerCreateForm, 'products:spoiler')
+
+@permission_required('products.can_update_intake')
+def update_intake(request, pk):
+    return update_product(request, pk, Intake, IntakeCreateForm, 'products:intake')
+
+@permission_required('products.can_update_widebody')
+def update_widebody(request, pk):
+    return update_product(request, pk, Widebody, WidebodyCreateForm, 'products:widebody')
+
 # ============= Delete Views ============ #
 
+@permission_required('products.can_delete_llanta')
 def delete_llanta(request, llanta_id):
     llanta = get_object_or_404(Llanta, id=llanta_id)
     llanta.delete()
     return redirect(reverse('products:llanta'))
 
+@permission_required('products.can_delete_aleron')
 def delete_aleron(request, aleron_id):
     aleron = get_object_or_404(Aleron, id=aleron_id)
     aleron.delete()
     return redirect(reverse('products:aleron'))
 
+@permission_required('products.can_delete_spoiler')
 def delete_spoiler(request, spoiler_id):
     spoiler = get_object_or_404(Spoiler, id=spoiler_id)
     spoiler.delete()
     return redirect(reverse('products:spoiler'))
 
+@permission_required('products.can_delete_intake')
 def delete_intake(request, intake_id):
     intake = get_object_or_404(Intake, id=intake_id)
     intake.delete()
     return redirect(reverse('products:intake'))
 
-
+@permission_required('products.can_delete_widebody')
 def delete_widebody(request, widebody_id):
     widebody = get_object_or_404(Widebody, id=widebody_id)
     widebody.delete()

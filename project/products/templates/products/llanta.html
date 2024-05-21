@@ -29,9 +29,9 @@
         
     <section class="inner-page">
         <div class="container">
-            <form action="{% url 'products:llanta_search' %}" method="GET">
-                <input type="text" name="q" placeholder="Buscar productos...">
-                <button type="submit">Buscar</button>
+            <form action="{% url 'products:llanta_search' %}" method="GET" class="search-form">
+                <input type="text" name="q" placeholder="Buscar productos..." class="search-input">
+                <button type="submit" class="search-button">Buscar</button>
             </form>
             <div class="row" style="padding-top: 25px;">
                 {% if llantas %}
@@ -47,8 +47,13 @@
                                         <h6 class="card-subtitle mb-2 text-muted">{{ llanta.modelo }}</h6>
                                         <p class="card-price" style="padding-bottom: 0px;">Precio: ${{ llanta.precio }}</p>
                                     </div>
-                                    <div id="boton" style="text-align: center; padding-bottom: 13px;">
-                                        <a href="{% url 'products:detalle_llanta' llanta.id %}" class="boton-create">Más detalles</a>
+                                    <div style="padding-bottom: 13px; text-align: center;">
+                                        <div style="display: flex; flex-direction: column; padding-bottom: 4px;">
+                                            <a href="#" class="button-cart"><i class="fas fa-shopping-cart" style="color: #ffbb38;"></i> Añadir al Carrito</a>
+                                        </div>
+                                        <div style="display: flex; flex-direction: column;">
+                                            <a href="{% url 'products:detalle_llanta' llanta.id %}" class="boton-more-details"><i class="fas fa-plus" style="color: #343a40;"></i> Más detalles</a>
+                                        </div>
                                     </div>
                                 </div>
                                 {% if user.is_authenticated and user.is_staff %}
@@ -73,8 +78,13 @@
                                         <h6 class="card-subtitle mb-2 text-muted">{{ llanta.modelo }}</h6>
                                         <p class="card-price" style="padding-bottom: 0px;">Precio: ${{ llanta.precio }}</p>
                                     </div>
-                                    <div id="boton" style="text-align: center; padding-bottom: 13px;">
-                                        <a href="{% url 'products:detalle_llanta' llanta.id %}" class="boton-create">Más detalles</a>
+                                    <div style="padding-bottom: 13px; text-align: center;">
+                                        <div style="display: flex; flex-direction: column; padding-bottom: 4px;">
+                                            <a href="#" class="button-cart"><i class="fas fa-shopping-cart" style="color: #ffbb38;"></i> Añadir al Carrito</a>
+                                        </div>
+                                        <div style="display: flex; flex-direction: column;">
+                                            <a href="{% url 'products:detalle_llanta' llanta.id %}" class="boton-more-details"><i class="fas fa-plus" style="color: #343a40;"></i> Más detalles</a>
+                                        </div>
                                     </div>
                                 </div>
                                 {% if user.is_authenticated and user.is_staff %}
