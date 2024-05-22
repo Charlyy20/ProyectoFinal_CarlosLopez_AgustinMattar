@@ -30,13 +30,13 @@
                     <td style="padding: 10px 0px;"><strong>{{ field.label_tag }}</strong></td>
                     <td>
                         {% if field.field.widget.input_type != 'hidden' %}
-                        {% if field.field.widget.input_type == 'number' %}
-                            <input type="number" step="any" name="{{ field.name }}" value="{{ field.value|default_if_none:'' }}" class="decimal-field">
-                        {% else %}
-                            {{ field }}
+                            {% if field.field.widget.input_type == 'number' %}
+                                <input type="number" step="any" name="{{ field.name }}" value="{{ field.value|default_if_none:'' }}" class="decimal-field">
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-                        </td>
+                    </td>
                 </tr>
                 {% endfor %}
             </table>
